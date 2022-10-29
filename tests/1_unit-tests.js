@@ -7,9 +7,13 @@ let convertHandler = new ConvertHandler();
 suite("Unit Tests", function () {
   test("convertHandler should correctly read a whole number input.", function () {
     assert.equal(10, convertHandler.getNum("10kg"));
+    assert.isNotNull(convertHandler.getNum("10kg"))
+    assert.equal('10', convertHandler.getNum("10kg"));
+    assert.notEqual(11, convertHandler.getNum("10kg"));
   });
   test("convertHandler should correctly read a decimal number input.", function () {
     assert.equal(10.1, convertHandler.getNum("10.1kg"));
+    assert.notEqual(11.25, convertHandler.getNum("10.25kg"));
   });
   test("convertHandler should correctly read a fractional input.", function () {
     assert.equal("1/2", convertHandler.getNum("1/2km"));
@@ -22,6 +26,19 @@ suite("Unit Tests", function () {
   });
   test("convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.", function () {
     assert.equal(1, convertHandler.getNum("kg"));
+    assert.equal(1, convertHandler.getNum("KG"));
+    assert.equal(1, convertHandler.getNum("lbs"));
+    assert.equal(1, convertHandler.getNum("LBS"));
+    assert.equal(1, convertHandler.getNum("L"));
+    assert.equal(1, convertHandler.getNum("l"));
+    assert.equal(1, convertHandler.getNum("mi"));
+    assert.equal(1, convertHandler.getNum("MI"));
+    assert.equal(1, convertHandler.getNum("km"));
+    assert.equal(1, convertHandler.getNum("KM"));
+    assert.equal(1, convertHandler.getNum('a'));
+    assert.notEqual(1, convertHandler.getNum('2'));
+    assert.notEqual(1, convertHandler.getNum('20kg'));
+
   });
   test("convertHandler should correctly read each valid input unit.", function () {
     assert.equal("kg", convertHandler.getUnit("kg"));
@@ -102,10 +119,17 @@ suite("Unit Tests", function () {
   });
   test("convertHandler should correctly convert lbs to kg.", function () {
     assert.equal(
-      "0.453592",
+      "0.45359",
       convertHandler.convert(
         convertHandler.getNum("1lbs"),
         convertHandler.getUnit("1lbs")
+      )
+    );
+    assert.equal(
+      "45.35920",
+      convertHandler.convert(
+        convertHandler.getNum("100lbs"),
+        convertHandler.getUnit("100lbs")
       )
     );
   });

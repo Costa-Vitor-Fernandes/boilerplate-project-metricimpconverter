@@ -98,35 +98,33 @@ function ConvertHandler() {
 
 
     
+    const galToL = 3.78541;
       if (initUnit === "gal") {
-        const galToL = 3.78541;
         result = initNum * galToL;
         result = result.toFixed(5)
       }
       if (initUnit === "L") {
-        const LtoGal = 0.264172;
-        result = initNum * LtoGal;
+        result = initNum * (1/galToL);
         result = result.toFixed(5)
       }
     
+      const lbsToKg = 0.453592;
       if (initUnit === "lbs") {
-        const lbsToKg = 0.453592;
         result = initNum * lbsToKg;
         result = result.toFixed(5)
       }
       if (initUnit === "kg") {
-        const kgToLbs = 2.204624;
-        result = initNum * kgToLbs;
+        result = initNum * (1/lbsToKg);
         result = result.toFixed(5)
       }
+      const miToKm = 1.609340;
       if (initUnit === "mi") {
-        const miToKm = 1.609340;
         result = initNum * miToKm;
         result = result.toFixed(6)
       }
       if (initUnit === "km") {
-        const kmToMi = 0.621373;
-        result = initNum * kmToMi;
+        
+        result = initNum * (1/miToKm);
         result = result.toFixed(5)
       }
     if(result){
