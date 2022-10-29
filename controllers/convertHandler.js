@@ -112,20 +112,20 @@ function ConvertHandler() {
       if (initUnit === "lbs") {
         const lbsToKg = 0.453592;
         result = initNum * lbsToKg;
-        result = result.toFixed(6)
+        result = result.toFixed(5)
       }
       if (initUnit === "kg") {
-        const kgToLbs = 2.20462;
+        const kgToLbs = 2.204624;
         result = initNum * kgToLbs;
         result = result.toFixed(5)
       }
       if (initUnit === "mi") {
-        const miToKm = 1.60934;
+        const miToKm = 1.609340;
         result = initNum * miToKm;
-        result = result.toFixed(5)
+        result = result.toFixed(6)
       }
       if (initUnit === "km") {
-        const kmToMi = 0.621371;
+        const kmToMi = 0.621373;
         result = initNum * kmToMi;
         result = result.toFixed(5)
       }
@@ -137,6 +137,8 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
+console.log(returnNum,'stirng result from convertion', typeof +returnNum, +returnNum)
+
 
 
     

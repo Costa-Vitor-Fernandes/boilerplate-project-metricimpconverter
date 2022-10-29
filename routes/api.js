@@ -8,6 +8,8 @@ module.exports = function (app) {
   let convertHandler = new ConvertHandler();
 
   app.route('/api/convert').get((req,res)=>{
+let number = 1
+
     let input = req.query.input
     
     let inputNum = convertHandler.getNum(input)
@@ -16,13 +18,13 @@ module.exports = function (app) {
 
     if(convertHandler.checkInvalidUnit(inputUnit) && convertHandler.checkInvalidNum(inputNum)){
       console.log(inputUnit,inputNum,' Unit and Num at start of if')
-      let returnNum = convertHandler.convert(eval(inputNum), inputUnit)
-      let returnUnit = convertHandler.getReturnUnit(inputUnit)      
-      let string = convertHandler.getString(eval(inputNum),inputUnit,returnNum, returnUnit)
+      let returnNum = parseFloat(convertHandler.convert(eval(inputNum), inputUnit)).toFixed(5)
+      let returnUnit = convertHandler.getReturnUnit(inputUnit)     
+      let string = convertHandler.getString(eval(inputNum),inputUnit,Number.parseFloat(returnNum).toFixed(5), returnUnit)
       let returning = {
         initNum:eval(inputNum),
         initUnit:inputUnit,
-        returnNum:returnNum,
+        returnNum:Number.parseFloat(returnNum),
         returnUnit:returnUnit,
         string:string,
       }
