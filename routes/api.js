@@ -18,9 +18,9 @@ module.exports = function (app) {
       console.log(inputUnit,inputNum,' Unit and Num at start of if')
       let returnNum = convertHandler.convert(eval(inputNum), inputUnit)
       let returnUnit = convertHandler.getReturnUnit(inputUnit)      
-      let string = convertHandler.getString(inputNum,inputUnit,returnNum, returnUnit)
+      let string = convertHandler.getString(eval(inputNum),inputUnit,returnNum, returnUnit)
       let returning = {
-        initNum:inputNum,
+        initNum:eval(inputNum),
         initUnit:inputUnit,
         returnNum:returnNum,
         returnUnit:returnUnit,
