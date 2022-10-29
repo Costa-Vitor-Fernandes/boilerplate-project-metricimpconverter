@@ -125,7 +125,7 @@ function ConvertHandler() {
         result = result.toFixed(6)
       }
       if (initUnit === "km") {
-        const kmToMi = 0.621373;
+        const kmToMi = 1/1.609340;
         result = initNum * kmToMi;
         result = result.toFixed(5)
       }
