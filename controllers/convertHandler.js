@@ -32,7 +32,7 @@ function ConvertHandler() {
       const inputNum = inputNumArr.reduce((accumulator, value) => {
         return accumulator + value;
       });
-      return inputNum;
+        return inputNum;
     }
     
     else return 1
@@ -101,45 +101,46 @@ function ConvertHandler() {
       if (initUnit === "gal") {
         const galToL = 3.78541;
         result = initNum * galToL;
+        result = result.toFixed(5)
       }
       if (initUnit === "L") {
         const LtoGal = 0.264172;
         result = initNum * LtoGal;
+        result = result.toFixed(5)
       }
     
       if (initUnit === "lbs") {
         const lbsToKg = 0.453592;
         result = initNum * lbsToKg;
+        result = result.toFixed(5)
       }
       if (initUnit === "kg") {
-        const kgToLbs = 2.20462;
+        const kgToLbs = 2.204624;
         result = initNum * kgToLbs;
+        result = result.toFixed(5)
       }
       if (initUnit === "mi") {
-        const miToKm = 1.60934;
+        const miToKm = 1.609340;
         result = initNum * miToKm;
+        result = result.toFixed(6)
       }
       if (initUnit === "km") {
-        const kmToMi = 0.621371;
+        const kmToMi = 0.621373;
         result = initNum * kmToMi;
+        result = result.toFixed(5)
       }
     if(result){
-      return result.toFixed(5);
+      console.log('result:', result);
+      return +result;
     }
     return false
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
+console.log(returnNum,'stirng result from convertion', typeof +returnNum, +returnNum)
 
-    
-    // if(initNum.length>2){
-    //   const regexp = /[\/]/g;
-    //   const inputInvalidNumArr = initNum.match(regexp);
-    //   console.log(inputInvalidNumArr.length,'length da parada');
-    //   if(inputInvalidNumArr.length>1){
-    //     return "Error: Invalid number"
-    //   }
-    // }
+
+
     
     if(initUnit && returnUnit){   
         let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`
