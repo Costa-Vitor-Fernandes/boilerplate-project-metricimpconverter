@@ -18,7 +18,6 @@ function ConvertHandler() {
   }
 
   this.checkInvalidUnit = function(inputUnit){
-    console.log(inputUnit,'inputUnit')
     if(inputUnit){
       return true
     }
@@ -41,7 +40,6 @@ function ConvertHandler() {
   this.getUnit = function (input) {
     const regexp = /[A-Z]/gi;
     const inputUnitArr = input.match(regexp);
-    console.log(inputUnitArr,'<regexed original>', input )
     let inputUnit ;
     if(inputUnitArr){
         inputUnit = inputUnitArr.reduce((accumulator, value) => {
@@ -93,11 +91,7 @@ function ConvertHandler() {
   };
 
   this.convert = function (initNum, initUnit) {
-    let result;
-    console.log('init num',initNum, 'initUnit', initUnit);
-
-
-    
+    let result; 
     const galToL = 3.78541;
       if (initUnit === "gal") {
         result = initNum * galToL;
@@ -128,7 +122,6 @@ function ConvertHandler() {
         result = result.toFixed(5)
       }
     if(result){
-      console.log('result:', result);
       return +result;
     }
     return false
