@@ -128,7 +128,6 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-console.log(returnNum,'stirng result from convertion', typeof +returnNum, +returnNum)
 
 
 
